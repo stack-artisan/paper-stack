@@ -1,0 +1,15 @@
+services:
+  paper-stack:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: paper-stack
+    container_name: paper-stack
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - .:/app
+      - /app/node_modules
